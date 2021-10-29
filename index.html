@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <!--
+    H5 表单标签和属性
+
+    1. fieldset 标签
+      + 表单集合的标签
+      + 一般用于把表单内的几个表单元素包裹在一个 fieldset 标签内
+      + 当作一个整体可以整体设置, 并且会出现一个边框包裹
+      + 自己本身带有一个 disabled 属性, 包裹内的所有 文本框 一起禁用
+    2. legend
+      + 一般出现在 fieldset 里面的第一个
+      + 表示标题, 回直接出现再边框上
+    3. 表单新类型 type 属性可以设置的内容
+      3-1. email
+      3-2. url
+      3-3. number
+        => 单独设置 max 属性 和 min 属性, step 属性
+      3-4. tel
+      3-5. search
+      3-6. date   年月日时间
+      3-7. datetime   PC 端没有意义
+      3-8. month  月份
+      3-9. week   周
+      3-10. range  范围进度条
+        => 单独设置 max 属性 min 属性 和 value 属性来控制进度条位置
+      3-11. color  颜色选择器
+    4. 表单属性
+      4-1. form 属性
+        + 写在一个表单标签上
+        + 当这个表单标签离开 form 标签以后
+        + 你的 form 表单提交不会提交
+        + form 属性的值, 就是你要关联的 form 标签的 id
+      4-2. formaction 属性
+        + 一个 from 标签里面的 submit 按钮点击会自动提交
+        + 一旦你写多个 submit 每一个都提交到一个位置
+        + 再 submit 上添加一个 formaction 属性, 表示这个提交按钮的提交位置
+      4-3. formmethod 属性
+        + 一个 form 标签里面的 每一个 submit 提交方式都是一样的
+        + 可以给每一个 submit 按钮填写 formmethod 来分别写入他们的提交方式
+      4-4. placeholder 属性
+        + 一个表单元素的默认提示文字
+        + 会在你输入任何内容的时候消失
+        + 当表单没有内容的时候再次显示
+      4-6. required 属性
+        + 表示必填
+        + 当一个表单再 form 标签内的时候
+        + 如果有该属性, 那么会再表单提交的时候验证
+      4-7. autocomplete
+        + 表示自动填充
+        + 前提: 必须要有 name 属性, 并且该 name 属性曾经在你的浏览器上提交过
+        + 下一次你聚焦的时候, 才会有提示内容出现
+        + 值 分别 是 on 和 off
+      4-8. pattern
+        + 可以填写一个正则表达式
+        + 会按照正则的规则来验证表单
+        + 注意: 填写正则的时候不需要 斜线, 只写 里面部分
+      4-9. multiple
+        + 专门用在 type=file 标签上的
+        + 只多选文件, 因为 type = file 默认是单选
+    5. 表单下拉列表
+      + datalist 标签
+        => 使用规则
+        1. datalist 是一个双标签
+        2. 里面填写若干的 option
+        3. 和一个 input 文本框关联
+      + 关联表单元素的要求
+        1. 表单元素身上填写一个 list 属性
+        2. datalist 标签身上填写一个 id 属性
+        3. 两个属性的值一致, 就关联了
+      + 标签形式
+        1. 可以根据你输入的内容自动筛选搜索
+        2. value 可以不和 option 标签对内内容一样
+  -->
+
+  <style>
+    legend {
+      padding: 0 50px;
+      margin-left: 50px;
+    }
+  </style>
+
+  <form>
+
+    <fieldset disabled>
+      <legend>标题</legend>
+      用户名: <input type="text"><br>
+      密码: <input type="text"><br>
+      邮箱: <input type="text"><br>
+    </fieldset>
+
+    邮箱: <input type="email"><br>
+    URL: <input type="url"><br>
+    数字: <input type="number" max="100" min="10" step="10"><br>
+    电话: <input type="tel"><br>
+    文本: <input type="text"><br>
+    搜索: <input type="search"><br>
+    时间: <input type="date"><br>
+    详细时间: <input type="datetime"><br>
+    月份: <input type="month"><br>
+    周: <input type="week"><br>
+    范围进入条: <input type="range" max="100" min="0" value="0"><br>
+    颜色选择器: <input type="color"><br>
+
+
+    <button>提交</button>
+  </form>
+
+
+  <!-- 再 form 标签外面的 表单元素 中添加 from 属性来关联 -->
+  <!-- <form id="login">
+    <input type="text" name="username">
+    <button formaction="./a.php" formmethod="GET">提交A</button>
+    <button formaction="./b.php" formmethod="POST">提交B</button>
+  </form>
+
+  <input form="login" type="text" name="password"> -->
+
+
+  <!-- 其他表单属性 -->
+  <!-- <form action="">
+    <input type="text" placeholder="请输入密码"><br>
+    <input type="text"><br>
+    <input type="text" name="asfiywiefhlah" autocomplete="on"><br>
+    <input type="text" name="asfiywiefhlah" autocomplete="off"><br>
+    <input type="text" pattern="[a-z]{3,6}"><br>
+    单选: <input type="file"><br>
+    多选: <input type="file" multiple><br>
+    <button>提交</button>
+  </form> -->
+
+  <!-- <input type="text" list="goods">
+  <datalist id="goods">
+    <option value="hello">12345</option>
+    <option value="world">1000</option>
+    <option value="Jack">23456</option>
+    <option value="Jerry">100</option>
+  </datalist> -->
+
+</body>
+</html>
